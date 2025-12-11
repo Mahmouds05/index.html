@@ -9,6 +9,8 @@
         .card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 600px; margin: auto; border-top: 5px solid #28a745; }
         h1 { color: #333; margin-bottom: 10px; }
         p { color: #666; font-size: 18px; line-height: 1.6; }
+        
+        /* تصميم الزرار القابل للسحب */
         .bookmarklet-btn {
             display: inline-block;
             background: #28a745;
@@ -26,25 +28,29 @@
         }
         .bookmarklet-btn:hover { transform: scale(1.05); background: #218838; }
         .bookmarklet-btn:active { cursor: grabbing; }
+
         .steps { text-align: right; background: #fff3cd; padding: 20px; border-radius: 10px; margin-top: 20px; border: 1px solid #ffeeba; }
+        .steps h3 { margin-top: 0; color: #856404; }
+        .steps ol { padding-right: 20px; margin-bottom: 0; color: #856404; }
+        .steps li { margin-bottom: 10px; }
     </style>
 </head>
 <body>
 
     <div class="card">
         <h1>أداة تسجيل الأوردرات السريعة 🚀</h1>
-        <p>لتفعيل الأداة، اسحب الزرار الأخضر ده وحطه في شريط العلامات فوق.</p>
+        <p>لتفعيل الأداة على متصفحك، اسحب الزرار الأخضر ده وحطه في شريط العلامات فوق (Bookmarks Bar).</p>
 
-        <a class="bookmarklet-btn" href="javascript:(function(){const scriptURL='PUT_YOUR_GOOGLE_SCRIPT_URL_HERE';if(document.getElementById('my-easy-tool')){alert('الأداة مفتوحة بالفعل!');return;}const style=document.createElement('style');style.innerHTML='#my-easy-tool{position:fixed;bottom:20px;right:20px;width:60px;height:60px;background:#28a745;color:#fff;border-radius:50%;text-align:center;line-height:60px;font-size:35px;cursor:pointer;z-index:2147483647;box-shadow:0 4px 15px rgba(0,0,0,0.3);transition:transform 0.3s;}#my-easy-tool:hover{transform:scale(1.1);}#my-tool-form{display:none;position:fixed;bottom:90px;right:20px;background:#fff;padding:20px;width:250px;border-radius:12px;box-shadow:0 5px 30px rgba(0,0,0,0.25);z-index:2147483647;font-family:sans-serif;border:1px solid #eee;direction:rtl;}#my-tool-form input{width:100%;padding:10px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px;box-sizing:border-box;font-size:14px;}#my-tool-form button{width:100%;padding:10px;background:#007bff;color:#fff;border:none;border-radius:6px;cursor:pointer;font-weight:bold;font-size:14px;}#my-tool-form button:hover{background:#0056b3;}#close-tool{position:absolute;top:5px;left:10px;cursor:pointer;color:#999;font-size:12px;}';document.head.appendChild(style);const btn=document.createElement('div');btn.id='my-easy-tool';btn.innerHTML='+';document.body.appendChild(btn);const form=document.createElement('div');form.id='my-tool-form';form.innerHTML='<span id=\'close-tool\'>❌ إغلاق</span><h3 style=\'margin:0 0 15px;text-align:center;color:#333\'>تسجيل أوردر</h3><input type=\'text\' id=\'inp-phone\' placeholder=\'رقم الموبايل\' autocomplete=\'off\'><input type=\'text\' id=\'inp-prod\' placeholder=\'اسم المنتج\' autocomplete=\'off\'><button id=\'btn-send\'>إرسال</button>';document.body.appendChild(form);btn.onclick=()=>{form.style.display=form.style.display==='none'?'block':'none';};document.getElementById('close-tool').onclick=()=>{form.style.display='none';};document.getElementById('btn-send').onclick=function(){const ph=document.getElementById('inp-phone').value;const pr=document.getElementById('inp-prod').value;const b=this;if(!ph||!pr){alert('برجاء كتابة البيانات كاملة');return;}b.innerText='جاري الإرسال...';b.disabled=true;fetch(scriptURL,{method:'POST',mode:'no-cors',body:JSON.stringify({phone:ph,product:pr})}).then(()=>{alert('✅ تم التسجيل بنجاح!');document.getElementById('inp-phone').value='';document.getElementById('inp-prod').value='';form.style.display='none';b.innerText='إرسال';b.disabled=false;}).catch(err=>{alert('❌ حصل خطأ، تأكد من الرابط والصلاحيات');b.innerText='إرسال';b.disabled=false;console.error(err);});};})();" title="أداة تسجيل الأوردر">
+        <a class="bookmarklet-btn" href="javascript:(function(){const scriptURL='https://script.google.com/macros/s/AKfycbx860walfTYAy5veZROocaBdDoAPrP0K_UkFtHuOUnHIP8cmWRb4-vVeC9ruiVfV930/exec';if(document.getElementById('my-easy-tool')){alert('الأداة مفتوحة بالفعل!');return;}const style=document.createElement('style');style.innerHTML='#my-easy-tool{position:fixed;bottom:20px;right:20px;width:60px;height:60px;background:#28a745;color:#fff;border-radius:50%;text-align:center;line-height:60px;font-size:35px;cursor:pointer;z-index:2147483647;box-shadow:0 4px 15px rgba(0,0,0,0.3);transition:transform 0.3s;}#my-easy-tool:hover{transform:scale(1.1);}#my-tool-form{display:none;position:fixed;bottom:90px;right:20px;background:#fff;padding:20px;width:250px;border-radius:12px;box-shadow:0 5px 30px rgba(0,0,0,0.25);z-index:2147483647;font-family:sans-serif;border:1px solid #eee;direction:rtl;}#my-tool-form input{width:100%;padding:10px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px;box-sizing:border-box;font-size:14px;}#my-tool-form button{width:100%;padding:10px;background:#007bff;color:#fff;border:none;border-radius:6px;cursor:pointer;font-weight:bold;font-size:14px;}#my-tool-form button:hover{background:#0056b3;}#close-tool{position:absolute;top:5px;left:10px;cursor:pointer;color:#999;font-size:12px;}';document.head.appendChild(style);const btn=document.createElement('div');btn.id='my-easy-tool';btn.innerHTML='+';document.body.appendChild(btn);const form=document.createElement('div');form.id='my-tool-form';form.innerHTML='<span id=\'close-tool\'>❌ إغلاق</span><h3 style=\'margin:0 0 15px;text-align:center;color:#333\'>تسجيل أوردر</h3><input type=\'text\' id=\'inp-phone\' placeholder=\'رقم الموبايل\' autocomplete=\'off\'><input type=\'text\' id=\'inp-prod\' placeholder=\'اسم المنتج\' autocomplete=\'off\'><button id=\'btn-send\'>إرسال</button>';document.body.appendChild(form);btn.onclick=()=>{form.style.display=form.style.display==='none'?'block':'none';};document.getElementById('close-tool').onclick=()=>{form.style.display='none';};document.getElementById('btn-send').onclick=function(){const ph=document.getElementById('inp-phone').value;const pr=document.getElementById('inp-prod').value;const b=this;if(!ph||!pr){alert('برجاء كتابة البيانات كاملة');return;}b.innerText='جاري الإرسال...';b.disabled=true;fetch(scriptURL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:ph,product:pr})}).then(()=>{alert('✅ تم التسجيل بنجاح!');document.getElementById('inp-phone').value='';document.getElementById('inp-prod').value='';form.style.display='none';b.innerText='إرسال';b.disabled=false;}).catch(err=>{alert('❌ حصل خطأ، تأكد من النت');b.innerText='إرسال';b.disabled=false;});};})();" title="أداة تسجيل الأوردر">
             اسحبني للشريط فوق ⬆️
         </a>
 
         <div class="steps">
             <h3>⚠️ تعليمات هامة:</h3>
             <ol>
-                <li>تأكد إنك غيرت كلمة <code>https://script.google.com/macros/s/AKfycbx860walfTYAy5veZROocaBdDoAPrP0K_UkFtHuOUnHIP8cmWRb4-vVeC9ruiVfV930/exec</code> برابط السكريبت بتاعك.</li>
-                <li>لازم صلاحية السكريبت تكون <b>Anyone</b>.</li>
-                <li>بعد التحديث، لازم <b>تمسح الزرار القديم</b> من الشريط وتسحب الجديد ده مكانه.</li>
+                <li>لو شريط العلامات مش ظاهر، اضغط <b>Ctrl + Shift + B</b>.</li>
+                <li>بعد ما تسحب الزرار، افتح السيستم أو الواتساب.</li>
+                <li>اضغط على الزرار من الشريط فوق، هتظهر الأداة تحت على اليمين.</li>
             </ol>
         </div>
     </div>
